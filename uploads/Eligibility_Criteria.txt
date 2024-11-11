@@ -1,0 +1,31 @@
+
+    **Eligibility Criteria**
+
+    To qualify for this RFP, vendors must meet the following eligibility criteria:
+
+    1. **Experience**:
+       - The vendor must have a minimum of 7 years of experience in developing and deploying large-scale web-based applications.
+       - Previous experience with government or educational institutions is preferred.
+
+    2. **Financial Stability**:
+       - The vendor must provide audited financial statements for the last 5 years.
+       - An annual turnover of at least $2 million is required.
+
+    3. **Technical Expertise**:
+       - The vendor must have a team of qualified professionals with expertise in the technologies mentioned in the technical requirements.
+       - The team should include certified professionals in cybersecurity and cloud infrastructure.
+
+    4. **Certifications**:
+       - The vendor must possess ISO 9001:2015 certification for quality management systems.
+       - ISO/IEC 27001 certification for information security management is also required.
+
+    5. **Compliance**:
+       - The vendor must comply with all local and international laws and regulations related to software development, data protection, and IT services.
+       - Provide documentation of compliance with data protection regulations like GDPR.
+
+    6. **References**:
+       - Provide at least 5 references from previous clients where similar projects have been successfully completed.
+       - Include contact information for each reference for verification purposes.
+
+    ![Company Logo](company_logo.png)
+    

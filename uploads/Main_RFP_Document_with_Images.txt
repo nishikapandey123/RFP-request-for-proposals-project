@@ -1,0 +1,22 @@
+REQUEST FOR PROPOSAL (RFP)
+
+**Title**: Development and Implementation of a Web-Based Application
+
+**Issued By**: Indian Institute of Technology
+
+**Objective**:
+The purpose of this RFP is to solicit proposals from qualified vendors to develop and implement a web-based application for automating various institutional processes, including but not limited to procurement, inventory management, and human resources.
+
+![Company Logo](company_logo.png)
+
+**Instructions to Bidders**:
+1. The bid must be submitted in two parts: Technical Bid and Financial Bid.
+2. All bids must be submitted electronically by [Date] to [Email Address].
+3. Late submissions will not be accepted.
+4. Bidders must provide detailed responses to all sections of this RFP.
+5. The bid validity period is 180 days from the date of submission.
+
+**Submission Guidelines**:
+1. The proposal should be submitted in PDF format.
+2. Include all required documentation as specified in the RFP.
+3. The proposal should be clear, concise, and well-organized.

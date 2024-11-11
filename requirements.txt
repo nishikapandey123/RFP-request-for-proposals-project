@@ -1,0 +1,24 @@
+pypdf
+langchain
+chromadb  # Vector storage
+pytest
+boto3
+openai
+ollama
+langchain_community
+fitz
+langchain==0.1.9
+langchain-community==0.0.25
+langchain-core==0.1.28
+langchain-openai
+flask
+Flask==2.0.1
+werkzeug==2.0.3
+PyMuPDF==1.18.19
+pyyaml==5.4.1
+scikit-learn
+python-docx
+pymongo
+uuid
+
+

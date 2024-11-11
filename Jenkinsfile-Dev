@@ -1,0 +1,114 @@
+pipeline 
+{
+    agent any
+    
+    environment
+    {
+        IMAGE_REPO_NAME="tellida-ai-dev"   
+        IMAGE_TAG="$BUILD_NUMBER"
+        AWS_DEFAULT_REGION="ap-south-1"
+	    MICROSERVICE_NAME="ai"
+        REPOSITORY_URI="431437364846.dkr.ecr.ap-south-1.amazonaws.com"
+        REMOTE_SERVER_IP = '15.207.58.219'
+        REMOTE_SERVER_USER = 'ubuntu'
+    }
+
+    stages 
+    {
+
+        stage('AWS ECR - Login') 
+        {
+            steps 
+            {
+                withCredentials([[
+                    $class: 'AmazonWebServicesCredentialsBinding',
+                    credentialsId: 'AWS-Credentials',
+                    accessKeyVariable: 'AWS_ACCESS_KEY_ID',
+                    secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
+                ]]) 
+                {
+                    script 
+                    {
+                        sh "aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin ${REPOSITORY_URI}"
+                    }
+                }
+            }
+        }
+
+
+
+        stage('Building Image') 
+        {
+            steps
+            {
+                script
+                {
+                     sh 'docker build -t $MICROSERVICE_NAME:$IMAGE_TAG .'
+                }
+            }
+        } 
+        
+        stage('Pushing to ECR')
+        {
+            steps
+            {  
+                script 
+                {
+                    sh "docker tag ${MICROSERVICE_NAME}:${IMAGE_TAG} ${REPOSITORY_URI}/${IMAGE_REPO_NAME}:$IMAGE_TAG"
+                    sh "docker push ${REPOSITORY_URI}/${IMAGE_REPO_NAME}:${IMAGE_TAG}"
+                }
+            }
+        }
+        
+        stage('Remove Image from Jenkins')
+        {
+            steps
+            {
+                script
+                {
+                    sh "docker rmi ${MICROSERVICE_NAME}:${IMAGE_TAG}"
+                    sh "docker rmi ${REPOSITORY_URI}/${IMAGE_REPO_NAME}:${IMAGE_TAG}"
+                }
+            }
+        }
+        
+        stage('Update Docker Compose') 
+        {
+            steps 
+            {
+                script
+                {
+                    sh  "sed -i 's|${REPOSITORY_URI}/${IMAGE_REPO_NAME}:.*|${REPOSITORY_URI}/${IMAGE_REPO_NAME}:${IMAGE_TAG}|' /var/lib/jenkins/tellida-dev/docker-compose.yaml"
+                }
+            }
+        }
+
+        stage('Deploy to EC2') 
+        {
+            steps 
+            {
+                
+                script 
+                {
+                    sshagent(credentials: ['Host-Server-TD'])  
+                    {
+                        sh "ssh -o StrictHostKeyChecking=no $REMOTE_SERVER_USER@$REMOTE_SERVER_IP 'aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin $REPOSITORY_URI'"
+                        sh "scp -o StrictHostKeyChecking=no /var/lib/jenkins/tellida-dev/docker-compose.yaml $REMOTE_SERVER_USER@$REMOTE_SERVER_IP:/home/ubuntu/docker-compose.yaml"
+                        sh "ssh -o StrictHostKeyChecking=no $REMOTE_SERVER_USER@$REMOTE_SERVER_IP 'docker compose -f /home/ubuntu/docker-compose.yaml up -d'"
+                        sh "ssh -o StrictHostKeyChecking=no $REMOTE_SERVER_USER@$REMOTE_SERVER_IP 'docker image prune -af'"
+                    }
+                }
+            }
+        }
+        
+    } 
+    
+    post 
+    {
+        always
+        {
+            cleanWs()
+        }
+    }
+}
+

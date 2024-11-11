@@ -1,0 +1,38 @@
+
+    **Proposal Submission Requirements**
+
+    Vendors must include the following in their proposal submission:
+
+    1. **Company Overview**:
+       - Provide a brief history of your company, including year of establishment, location, and core competencies.
+       - Highlight any awards, recognitions, or partnerships relevant to this project.
+
+    2. **Technical Proposal**:
+       - Detailed explanation of your proposed solution, including architecture, technology stack, and project plan.
+       - Include a timeline with milestones and deliverables.
+
+    3. **Financial Proposal**:
+       - Provide a detailed cost breakdown, including development, deployment, and post-implementation support costs.
+       - Include payment terms and any applicable taxes or additional fees.
+
+    4. **Project Team**:
+       - Provide resumes of key personnel who will be involved in the project, including their roles, qualifications, and relevant experience.
+       - Include a brief description of the project management methodology that will be used.
+
+    5. **Legal and Compliance Documents**:
+       - Include copies of your certifications, licenses, and any other legal documents required by this RFP.
+       - Provide a statement of compliance with all applicable laws and regulations.
+
+    6. **References**:
+       - Include at least 5 references from previous clients where similar projects have been completed successfully.
+       - Provide detailed case studies if available.
+
+    **Submission Instructions**:
+    - Submit the complete proposal in both electronic and hard copy formats.
+    - The electronic copy should be submitted via email to [contact email].
+    - The hard copy should be delivered to our office by the submission deadline.
+
+    **Contact Information**:
+    - For any queries or clarifications, please contact [Name, Title, Contact Information].
+
+    
